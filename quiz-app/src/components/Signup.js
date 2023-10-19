@@ -17,23 +17,26 @@ import {
 export default function Signup({ isOpen, onClose }) {
   const [selectGrade, setSelectGrade] = useState('');
 
-  const middleSchools = [
-    'Lovelace Middle School',
-    'Hopper Middle School',
-    'Johnson Middle School',
-    'Bartik Middle School',
-  ];
-  const highSchools = [
-    'Perlman High School',
-    'Goldwasser High School',
-    'Conway High School',
-  ];
   const grades = ['6th', '7th', '8th', '9th', '10th', '11th', '12th'];
 
-  const schoolsByGrade = ['6th', '7th', '8th'].includes(selectGrade)
-    ? middleSchools
-    : ['9th', '10th', '11th', '12th'].includes(selectGrade)
-    ? highSchools
+  const schools = {
+    middle: [
+      'Lovelace Middle School',
+      'Hopper Middle School',
+      'Johnson Middle School',
+      'Bartik Middle School',
+    ],
+    high: [
+      'Perlman High School',
+      'Goldwasser High School',
+      'Conway High School',
+    ],
+  };
+
+  const schoolsByGrade = selectGrade
+    ? ['6th', '7th', '8th'].includes(selectGrade)
+      ? schools.middle
+      : schools.high
     : [];
 
   return (
@@ -64,6 +67,7 @@ export default function Signup({ isOpen, onClose }) {
           <FormControl mt={4}>
             <Select
               placeholder="Grade"
+              value={selectGrade}
               onChange={(e) => setSelectGrade(e.target.value)}
             >
               {grades.map((grade) => (
