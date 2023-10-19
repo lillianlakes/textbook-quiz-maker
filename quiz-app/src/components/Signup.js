@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   Modal,
   ModalOverlay,
@@ -15,6 +15,27 @@ import {
 } from '@chakra-ui/react';
 
 export default function Signup({ isOpen, onClose }) {
+  const [selectGrade, setSelectGrade] = useState('');
+
+  const middleSchools = [
+    'Lovelace Middle School',
+    'Hopper Middle School',
+    'Johnson Middle School',
+    'Bartik Middle School',
+  ];
+  const highSchools = [
+    'Perlman High School',
+    'Goldwasser High School',
+    'Conway High School',
+  ];
+  const grades = ['6th', '7th', '8th', '9th', '10th', '11th', '12th'];
+
+  const schoolsByGrade = ['6th', '7th', '8th'].includes(selectGrade)
+    ? middleSchools
+    : ['9th', '10th', '11th', '12th'].includes(selectGrade)
+    ? highSchools
+    : [];
+
   return (
     <Modal isOpen={isOpen} onClose={onClose} isCentered>
       <ModalOverlay />
@@ -28,27 +49,38 @@ export default function Signup({ isOpen, onClose }) {
             </InputGroup>
           </FormControl>
 
-          <FormControl mt={4} isRequired>
+          <FormControl mt={4}>
             <InputGroup>
               <Input placeholder="Email" type="email" />
             </InputGroup>
           </FormControl>
 
-          <FormControl mt={4} isRequired>
+          <FormControl mt={4}>
             <InputGroup>
               <Input placeholder="Password" />
             </InputGroup>
           </FormControl>
 
           <FormControl mt={4}>
-            <Select placeholder="Grade">
-              <option value="1">grade</option>
+            <Select
+              placeholder="Grade"
+              onChange={(e) => setSelectGrade(e.target.value)}
+            >
+              {grades.map((grade) => (
+                <option key={grade} value={grade}>
+                  {grade}
+                </option>
+              ))}
             </Select>
           </FormControl>
 
           <FormControl mt={4}>
             <Select placeholder="School">
-              <option>school</option>
+              {schoolsByGrade.map((school) => (
+                <option key={school} value={school}>
+                  {school}
+                </option>
+              ))}
             </Select>
           </FormControl>
         </ModalBody>
