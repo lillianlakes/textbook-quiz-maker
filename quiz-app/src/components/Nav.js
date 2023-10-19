@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Box, Flex, Button, Text } from '@chakra-ui/react';
 import Signup from './Signup';
 
 export default function Nav() {
-  const [isModalOpen, setModalOpen] = React.useState(true);
+  const [isModalOpen, setModalOpen] = useState(true);
 
   return (
     <Flex
