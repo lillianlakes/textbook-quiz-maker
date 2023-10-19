@@ -25,7 +25,7 @@ create table sentence (
   textbook_id int not null,
   highlighted_text long varchar,
   full_sentence long varchar,
-  quiz_question should live here?
+  quiz_question varchar(50)
 ) engine = InnoDB;
 
 alter table sentence
