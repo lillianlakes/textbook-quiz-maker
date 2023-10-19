@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {
   Modal,
   ModalOverlay,
@@ -13,31 +13,11 @@ import {
   InputGroup,
   Select,
 } from '@chakra-ui/react';
+import { grades } from '../data/data';
+import { useSelectSchool } from '../hooks/useSelectSchool';
 
 export default function Signup({ isOpen, onClose }) {
-  const [selectGrade, setSelectGrade] = useState('');
-
-  const grades = ['6th', '7th', '8th', '9th', '10th', '11th', '12th'];
-
-  const schools = {
-    middle: [
-      'Lovelace Middle School',
-      'Hopper Middle School',
-      'Johnson Middle School',
-      'Bartik Middle School',
-    ],
-    high: [
-      'Perlman High School',
-      'Goldwasser High School',
-      'Conway High School',
-    ],
-  };
-
-  const schoolsByGrade = selectGrade
-    ? ['6th', '7th', '8th'].includes(selectGrade)
-      ? schools.middle
-      : schools.high
-    : [];
+  const [selectGrade, setSelectGrade, schoolsByGrade] = useSelectSchool();
 
   return (
     <Modal isOpen={isOpen} onClose={onClose} isCentered>
