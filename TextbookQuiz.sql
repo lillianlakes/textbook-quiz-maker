@@ -6,7 +6,8 @@ create table textbook (
   id int not null auto_increment primary key,
   title varchar(30),
   author varchar(30),
-  subject varchar(30)
+  subject varchar(30),
+  epub_link varchar(50)
 ) engine = InnoDB;
 
 create table student (
@@ -19,13 +20,15 @@ create table student (
   grade char(1)
 ) engine = InnoDB;
 
-create table highlighted_text (
+create table sentence (
   id int not null auto_increment primary key,
   textbook_id int not null,
-  highlighted_text long varchar
+  highlighted_text long varchar,
+  full_sentence long varchar,
+  quiz_question should live here?
 ) engine = InnoDB;
 
-alter table highlighted_text
+alter table sentence
   add foreign key (textbook_id)
   references textbook(id)
 ;
@@ -38,28 +41,27 @@ create table quiz (
 create table quiz_question (
   id int not null auto_increment primary key,
   quiz_id int not null,
-  question varchar(50),
-  answer1 varchar(50), # this is the correct answer
-  answer2 varchar(50),
-  answer3 varchar(50),
-  answer4 varchar(50)
+  question varchar(50)
 ) engine = InnoDB;
 
-create table student_quiz_result (
+alter table quiz_question
+  add foreign key (quiz_id)
+  reference quiz(id)
+;
+
+create table student_quiz_answer (
   id int not null auto_increment primary key,
   student_id int not null,
-  quiz_id int not null,
-  number_of_questions_on_quiz int,
-  number_of_questions_answered int,
-  number_of_questions_correct int
+  quiz_question_id int not null,
+  student_answer varchar(50)
 ) engine = InnoDB;
 
-alter table student_quiz_result
+alter table student_quiz_answer
   add foreign key (student_id)
   references student(id)
 ;
 
-alter table student_quiz_result
-  add foreign key (quiz_id)
-  references quiz(id)
+alter table student_quiz_answer
+  add foreign key (quiz_question_id)
+  references quiz_question(id)
 ;
