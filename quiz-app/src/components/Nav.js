@@ -1,7 +1,10 @@
 import React from 'react';
 import { Box, Flex, Button, Text } from '@chakra-ui/react';
+import Signup from './Signup';
 
 export default function Nav() {
+  const [isModalOpen, setModalOpen] = React.useState(true);
+
   return (
     <Flex
       as="nav"
@@ -17,9 +20,10 @@ export default function Nav() {
         </Text>
       </Box>
       <Flex gap={4} align="center">
-        <Button href="#" bg={'#D2B6FF'}>
+        <Button href="#" bg={'#D2B6FF'} onClick={() => setModalOpen(true)}>
           Signup
         </Button>
+        <Signup isOpen={isModalOpen} onClose={() => setModalOpen(false)} />
         <Button href="#" bg={'#ABC5FE'}>
           Login
         </Button>
