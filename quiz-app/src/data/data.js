@@ -9,3 +9,5 @@ export const schools = {
   ],
   high: ['Perlman High School', 'Goldwasser High School', 'Conway High School'],
 };
+
+export const subjects = ['History', 'Math', 'Science'];
