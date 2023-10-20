@@ -3,7 +3,7 @@ import { Box, Flex, Button, Text } from '@chakra-ui/react';
 import Signup from './Signup';
 
 export default function Nav() {
-  const [isModalOpen, setModalOpen] = useState(true);
+  const [isModalOpen, setModalOpen] = useState(false);
 
   return (
     <Flex
@@ -16,7 +16,7 @@ export default function Nav() {
     >
       <Box>
         <Text fontSize="3xl" fontWeight="800">
-          GeniusQuiz
+          Book Buddy
         </Text>
       </Box>
       <Flex gap={4} align="center">

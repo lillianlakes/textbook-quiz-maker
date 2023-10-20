@@ -1,0 +1,8 @@
+.BookCard {
+  align-items: center;
+}
+
+.BookCardImage {
+  width: 212px;
+  height: 230px;
+}
