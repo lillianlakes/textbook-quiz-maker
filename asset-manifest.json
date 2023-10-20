@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/lillianlakes/textbook-quiz-maker/static/css/main.94a6af79.css",
+    "main.js": "/lillianlakes/textbook-quiz-maker/static/js/main.a6c53519.js",
+    "index.html": "/lillianlakes/textbook-quiz-maker/index.html",
+    "main.94a6af79.css.map": "/lillianlakes/textbook-quiz-maker/static/css/main.94a6af79.css.map",
+    "main.a6c53519.js.map": "/lillianlakes/textbook-quiz-maker/static/js/main.a6c53519.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.94a6af79.css",
+    "static/js/main.a6c53519.js"
+  ]
+}
