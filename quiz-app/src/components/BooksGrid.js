@@ -3,10 +3,12 @@ import { Box, Text, SimpleGrid, Card, Image } from '@chakra-ui/react';
 import '../styles/styles.css';
 import { subjects } from '../data/Books.ts';
 
-export default function BooksGrid() {
-  const allBooks = subjects
-    .flatMap((subject) => subject.books)
-    .sort(() => Math.random() - 0.5);
+export default function BooksGrid({ onBookSelect }) {
+  const allBooks = subjects.flatMap((subject) => subject.books);
+
+  const handleBookClick = (book) => {
+    onBookSelect(book);
+  };
 
   return (
     <Box my={20}>
@@ -18,9 +20,15 @@ export default function BooksGrid() {
               src={book.image_url}
               alt="Book Cover"
               className="BookCardImage"
+              onClick={() => handleBookClick(book)}
             />
 
-            <Text fontSize="sm" fontWeight={600} align="center">
+            <Text
+              fontSize="sm"
+              fontWeight={600}
+              align="center"
+              onClick={() => handleBookClick(book)}
+            >
               {book.title}
             </Text>
           </Card>
