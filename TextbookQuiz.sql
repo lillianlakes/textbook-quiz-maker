@@ -4,8 +4,8 @@ create database textbookquizmaker;
 
 create table textbook (
   id int not null auto_increment primary key,
-  title varchar(30),
-  author varchar(30),
+  title varchar(100),
+  author varchar(50),
   subject varchar(30),
   epub_link varchar(50)
 ) engine = InnoDB;
@@ -17,21 +17,8 @@ create table student (
   first_name varchar(20),
   last_name varchar(20),
   school_name varchar(50),
-  grade char(1)
+  grade char(2)
 ) engine = InnoDB;
-
-create table sentence (
-  id int not null auto_increment primary key,
-  textbook_id int not null,
-  highlighted_text long varchar,
-  full_sentence long varchar,
-  quiz_question varchar(50)
-) engine = InnoDB;
-
-alter table sentence
-  add foreign key (textbook_id)
-  references textbook(id)
-;
 
 create table quiz (
   id int not null auto_increment primary key,
@@ -40,9 +27,16 @@ create table quiz (
 
 create table quiz_question (
   id int not null auto_increment primary key,
-  quiz_id int not null,
-  question varchar(50)
+  textbook_id int not null,
+  highlighted_text long varchar,
+  full_sentence long varchar,
+  quiz_question varchar(280)
 ) engine = InnoDB;
+
+alter table quiz_question
+  add foreign key (textbook_id)
+  references textbook(id)
+;
 
 alter table quiz_question
   add foreign key (quiz_id)
@@ -53,7 +47,7 @@ create table student_quiz_answer (
   id int not null auto_increment primary key,
   student_id int not null,
   quiz_question_id int not null,
-  student_answer varchar(50)
+  student_answer varchar(280)
 ) engine = InnoDB;
 
 alter table student_quiz_answer
