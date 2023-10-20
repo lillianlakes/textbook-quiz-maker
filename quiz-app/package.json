@@ -1,7 +1,7 @@
 {
   "name": "quiz-app",
   "version": "0.1.0",
-  "homepage": "https://github.com/lillianlakes/textbook-quiz-maker",
+  "homepage": "https://github.io/lillianlakes/textbook-quiz-maker",
   "private": true,
   "dependencies": {
     "@chakra-ui/icons": "^2.1.1",
