@@ -22,7 +22,7 @@ export const subjects: Subject[] = [
         author: 'Daina Ramey Berry, Kali Nicole Gross.',
         description:
           'A powerful and important book that charts the rich and dynamic history of Black women in the United States. It shows how these courageous women challenged racial and gender oppression and boldly asserted their authority and visions of freedom even in the face of resistance. This book is required reading for anyone interested in social justice.',
-        url: '/BWH.epub',
+        url: 'https://github.com/lillianlakes/textbook-quiz-maker/raw/e7d3b884a598c295e482805b1c6ef9e897e7e8f7/quiz-app/src/data/BWH.epub',
         image_url:
           'https://books.google.com/books/publisher/content?id=aTHJDwAAQBAJ&pg=PP1&img=1&zoom=3&hl=en&bul=1&sig=ACfU3U10cKc-3qW4c5DJJjp44RlQI7zA7A&w=1280',
       },
@@ -49,8 +49,8 @@ export const subjects: Subject[] = [
         id: 4,
         title: 'The American Journey To World War 1',
         author: 'Joyce Appleby',
-        // description:
-        //   'The page-turning, heart-wrenching true story of one young woman willing to risk her safety and even her life for a chance at freedom in the largest slave escape attempt in American history.',
+        description:
+          'The page-turning, heart-wrenching true story of one young woman willing to risk her safety and even her life for a chance at freedom in the largest slave escape attempt in American history.',
         url: '/POTP.epub',
         image_url:
           'https://secure.coverart.textbookrush.com/large/861/1-9780078693861.jpg',
