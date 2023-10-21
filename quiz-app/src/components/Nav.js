@@ -15,7 +15,7 @@ export default function Nav() {
       borderBottom={'2px solid #969BAB'}
     >
       <Box>
-        <Link href="/">
+        <Link href="/textbook-quiz-maker/">
           <Image
             boxSize="70%"
             objectFit="contain"
