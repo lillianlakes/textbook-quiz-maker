@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Box, Flex, Button, Image } from '@chakra-ui/react';
+import { Box, Flex, Button, Image, Link } from '@chakra-ui/react';
 import Signup from './Signup';
 
 export default function Nav() {
@@ -15,11 +15,13 @@ export default function Nav() {
       borderBottom={'2px solid #969BAB'}
     >
       <Box>
-        <Image
-          boxSize="70%"
-          objectFit="contain"
-          src="https://i.ibb.co/FsLT19z/booklogo3.png"
-        />
+        <Link href="./App">
+          <Image
+            boxSize="70%"
+            objectFit="contain"
+            src="https://i.ibb.co/FsLT19z/booklogo3.png"
+          />
+        </Link>
       </Box>
       <Flex gap={4} align="center">
         <Button href="#" bg={'#D2B6FF'} onClick={() => setModalOpen(true)}>
