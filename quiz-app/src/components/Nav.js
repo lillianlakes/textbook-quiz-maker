@@ -15,7 +15,7 @@ export default function Nav() {
       borderBottom={'2px solid #969BAB'}
     >
       <Box>
-        <Link href="./App">
+        <Link href="/">
           <Image
             boxSize="70%"
             objectFit="contain"
