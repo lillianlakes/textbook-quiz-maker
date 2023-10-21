@@ -17,7 +17,7 @@ create table student (
   first_name varchar(20),
   last_name varchar(20),
   school_name varchar(50),
-  grade char(2)
+  grade char(4)
 ) engine = InnoDB;
 
 create table quiz (
