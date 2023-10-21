@@ -9,7 +9,11 @@ import {
   ButtonGroup,
 } from '@chakra-ui/react';
 
-export default function Footer() {
+export default function Footer({ openQuiz }) {
+  const handleQuizClick = () => {
+    openQuiz();
+  };
+
   return (
     <Flex direction="row" my={3} justify="space-between">
       <Menu>
@@ -34,7 +38,9 @@ export default function Footer() {
         </MenuList>
         <ButtonGroup>
           <Button size="md">Highlights</Button>
-          <Button size="md">Quiz</Button>
+          <Button size="md" onClick={handleQuizClick}>
+            Quiz
+          </Button>
         </ButtonGroup>
       </Menu>
     </Flex>
