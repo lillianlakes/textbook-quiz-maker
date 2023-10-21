@@ -22,7 +22,7 @@ export const subjects: Subject[] = [
         author: 'Daina Ramey Berry, Kali Nicole Gross.',
         description:
           'A powerful and important book that charts the rich and dynamic history of Black women in the United States. It shows how these courageous women challenged racial and gender oppression and boldly asserted their authority and visions of freedom even in the face of resistance. This book is required reading for anyone interested in social justice.',
-        url: 'https://github.com/lillianlakes/textbook-quiz-maker/raw/kimmy/frontend/quiz-app/src/data/BWH.epub',
+        url: 'https://raw.githack.com/lillianlakes/textbook-quiz-maker/kimmy/frontend/quiz-app/src/data/BWH.epub',
         image_url:
           'https://books.google.com/books/publisher/content?id=aTHJDwAAQBAJ&pg=PP1&img=1&zoom=3&hl=en&bul=1&sig=ACfU3U10cKc-3qW4c5DJJjp44RlQI7zA7A&w=1280',
       },
@@ -31,7 +31,7 @@ export const subjects: Subject[] = [
         title: 'History of Woman Suffrage',
         author: 'Susan B. Anthony',
         description: `Published in six volumes from 1881 to 1922, it is a history of the women's suffrage movement, primarily in the United States.`,
-        url: '/HOWS.epub',
+        url: 'https://raw.githack.com/lillianlakes/textbook-quiz-maker/kimmy/frontend/quiz-app/src/data/HOWS.epub',
         image_url:
           'https://img.thriftbooks.com/api/images/i/m/C076C256016B14ABD1FE3C4E7AF9C41A041E04AD.jpg',
       },
@@ -41,17 +41,14 @@ export const subjects: Subject[] = [
         author: 'Winifred Conkling',
         description:
           'The page-turning, heart-wrenching true story of one young woman willing to risk her safety and even her life for a chance at freedom in the largest slave escape attempt in American history.',
-        url: '/POTP.epub',
+        url: 'https://raw.githack.com/lillianlakes/textbook-quiz-maker/kimmy/frontend/quiz-app/src/data/POTP.epub',
+
         image_url:
           'https://books.google.com/books/publisher/content?id=o8-rAwAAQBAJ&pg=PP1&img=1&zoom=3&hl=en&bul=1&sig=ACfU3U1vejxHN1OyIXaHPebTfjiAGWfZIw&w=1280',
       },
       {
         id: 4,
         title: 'The American Journey To World War 1',
-        author: 'Joyce Appleby',
-        description:
-          'The page-turning, heart-wrenching true story of one young woman willing to risk her safety and even her life for a chance at freedom in the largest slave escape attempt in American history.',
-        url: '/POTP.epub',
         image_url:
           'https://secure.coverart.textbookrush.com/large/861/1-9780078693861.jpg',
       },
