@@ -5,7 +5,7 @@ import Nav from './Nav';
 import FilterBooks from './FilterBooks';
 import BooksGrid from './BooksGrid';
 import BookReader from './BookReader.tsx';
-//gh-page test
+import Menu from './Menu';
 
 function App() {
   const [selectedBook, setSelectedBook] = useState(null);
@@ -14,13 +14,25 @@ function App() {
     setSelectedBook(book);
   };
 
+  function handleMenuClose() {
+    setSelectedBook(null);
+  }
+
   return (
     <ChakraProvider theme={theme}>
       <Nav />
       <Container my={10} mx="auto" maxW="70vw">
-        <FilterBooks />
-        <BooksGrid onBookSelect={handleBookSelect} />
-        {selectedBook && <BookReader selectedBook={selectedBook} />}
+        {selectedBook ? (
+          <>
+            <Menu selectedBook={selectedBook} onClose={handleMenuClose} />
+            <BookReader selectedBook={selectedBook} />
+          </>
+        ) : (
+          <>
+            <FilterBooks />
+            <BooksGrid onBookSelect={handleBookSelect} />
+          </>
+        )}
       </Container>
     </ChakraProvider>
   );
