@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Box, Flex, Button, Text } from '@chakra-ui/react';
+import { Box, Flex, Button, Image } from '@chakra-ui/react';
 import Signup from './Signup';
 
 export default function Nav() {
@@ -15,9 +15,7 @@ export default function Nav() {
       borderBottom={'2px solid #969BAB'}
     >
       <Box>
-        <Text fontSize="3xl" fontWeight="800">
-          Book Buddy
-        </Text>
+        <Image src="quiz-app/public/assets/booklogo2.jpg" />
       </Box>
       <Flex gap={4} align="center">
         <Button href="#" bg={'#D2B6FF'} onClick={() => setModalOpen(true)}>
