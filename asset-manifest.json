@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/lillianlakes/textbook-quiz-maker/static/css/main.94a6af79.css",
-    "main.js": "/lillianlakes/textbook-quiz-maker/static/js/main.a6c53519.js",
-    "index.html": "/lillianlakes/textbook-quiz-maker/index.html",
-    "main.94a6af79.css.map": "/lillianlakes/textbook-quiz-maker/static/css/main.94a6af79.css.map",
-    "main.a6c53519.js.map": "/lillianlakes/textbook-quiz-maker/static/js/main.a6c53519.js.map"
+    "main.css": "/textbook-quiz-maker/static/css/main.75f2cff3.css",
+    "main.js": "/textbook-quiz-maker/static/js/main.a59bd3d0.js",
+    "index.html": "/textbook-quiz-maker/index.html",
+    "main.75f2cff3.css.map": "/textbook-quiz-maker/static/css/main.75f2cff3.css.map",
+    "main.a59bd3d0.js.map": "/textbook-quiz-maker/static/js/main.a59bd3d0.js.map"
   },
   "entrypoints": [
-    "static/css/main.94a6af79.css",
-    "static/js/main.a6c53519.js"
+    "static/css/main.75f2cff3.css",
+    "static/js/main.a59bd3d0.js"
   ]
 }
