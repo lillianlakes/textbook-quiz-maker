@@ -21,7 +21,7 @@ function App() {
   return (
     <ChakraProvider theme={theme}>
       <Nav />
-      <Container my={10} mx="auto" maxW="70vw">
+      <Container my={8} mx="auto" maxW="70vw">
         {selectedBook ? (
           <>
             <Menu selectedBook={selectedBook} onClose={handleMenuClose} />
