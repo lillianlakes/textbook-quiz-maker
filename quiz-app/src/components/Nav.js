@@ -11,7 +11,7 @@ export default function Nav() {
       align="center"
       justify="space-between"
       paddingY="1rem"
-      px={10}
+      mx={10}
       borderBottom={'2px solid #969BAB'}
     >
       <Box>

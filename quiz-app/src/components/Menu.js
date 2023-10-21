@@ -3,11 +3,16 @@ import { Flex, Text, CloseButton } from '@chakra-ui/react';
 
 export default function Menu({ selectedBook, onClose }) {
   return (
-    <Flex direction="row" my={8} justify="space-between">
-      <Text fontSize="2xl" as="b">
+    <Flex direction="row" my={5} justify="space-between">
+      <Text fontSize="xl" as="b">
         {selectedBook.title}
       </Text>
-      <CloseButton size="md" bg="#FFBD12" onClick={onClose} />
+      <CloseButton
+        size="md"
+        bg="#FFBD12"
+        borderRadius="50%"
+        onClick={onClose}
+      />
     </Flex>
   );
 }
