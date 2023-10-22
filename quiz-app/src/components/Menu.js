@@ -1,15 +1,21 @@
 import React from 'react';
 import { Flex, Text, CloseButton, Button } from '@chakra-ui/react';
 
-export default function Menu({ selectedBook, onClose, quizMode, goBackClick }) {
+export default function Menu({
+  selectedBook,
+  onClose,
+  showQuiz,
+  goBackClick,
+  showHighlights,
+}) {
   return (
     <>
       {selectedBook && (
         <Flex direction="row" my={5} justify="space-between">
           <Text fontSize="xl" as="b">
-            {quizMode ? `Quizzing: ${selectedBook.title}` : selectedBook.title}
+            {showQuiz ? `Quizzing: ${selectedBook.title}` : selectedBook.title}
           </Text>
-          {quizMode ? (
+          {showQuiz || showHighlights ? (
             <Button size="md" bg="#FFBD12" onClick={goBackClick}>
               Back
             </Button>
@@ -19,6 +25,7 @@ export default function Menu({ selectedBook, onClose, quizMode, goBackClick }) {
               bg="#FFBD12"
               borderRadius="50%"
               onClick={onClose}
+              showHighlights={showHighlights}
             />
           )}
         </Flex>
