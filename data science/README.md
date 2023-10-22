@@ -1,3 +1,28 @@
-# GeniousQuiz - ADHD Friendly Interactive E-Textbooks Quiz Maker
+# Book Buddy - ADHD Friendly Interactive E-Textbooks Quiz Maker
 
-As part of the Women Who Code Hackathon For Social Good 2023, a team of six created a full-stack e-textbook application that allows students to highlight text in digital textbooks and instantly generate quizzes based on the highlights.
+textbook-quiz-maker/
+│   
+└── data science/
+    │   main.py
+    │   sample.py    
+    │   README.md
+    │   requirements.txt
+    │   logging_config.py
+    │
+    └── data/
+    │   train.csv
+    │   valid.csv
+    │
+    └── models/
+    │   t5_trained_model/
+    │   t5_tokenizer/
+    │
+    └── logs/  # Directory to store log files
+    │   ├── your_project.log
+    │
+    └── scripts/
+    │   custom_dataset.py
+    │   t5_tuner.py
+    │   preprocessing.py
+
+    
