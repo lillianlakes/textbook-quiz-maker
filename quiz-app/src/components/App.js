@@ -8,52 +8,99 @@ import BookReader from './BookReader.tsx';
 import Menu from './Menu';
 import Footer from './Footer';
 import Quiz from './Quiz';
+import Highlights from './Highlights';
 
 function App() {
   const [selectedBook, setSelectedBook] = useState(null);
   const [showQuiz, setShowQuiz] = useState(false);
-  const [quizMode, setQuizMode] = useState(false);
+  const [showHighlights, setShowHighlights] = useState(false);
+  const [bookHighlights, setBookHighlights] = useState([]);
 
   const handleBookSelect = (book) => {
     setSelectedBook(book);
+    setShowHighlights(false);
+
+    const highlightsForSelectedBook = localStorage.getItem(
+      `highlightedText_${book.title}`
+    );
+    setBookHighlights(
+      highlightsForSelectedBook ? highlightsForSelectedBook.split('. ') : []
+    );
   };
 
   const handleMenuClose = () => {
     setSelectedBook(null);
+    setShowHighlights(false);
   };
 
-  const openQuiz = () => {
-    setShowQuiz(true);
-    setQuizMode(true);
-  };
+  const openQuiz = () => setShowQuiz(true);
 
   const goBackClick = () => {
-    setShowQuiz(false);
-    setQuizMode(false);
+    if (showQuiz) {
+      setShowQuiz(false);
+    } else if (showHighlights) {
+      setShowHighlights(false);
+    }
   };
+
+  const openHighlights = () => {
+    setShowHighlights(true);
+  };
+
+  const handleHighlightsChange = (newHighlights) => {
+    setBookHighlights(newHighlights);
+    if (selectedBook) {
+      localStorage.setItem(
+        `highlightedText_${selectedBook.title}`,
+        newHighlights.join('. ')
+      );
+    }
+  };
+  const RenderMenu = () => (
+    <Menu
+      selectedBook={selectedBook}
+      goBackClick={goBackClick}
+      onClose={handleMenuClose}
+      showQuiz={showQuiz}
+      showHighlights={showHighlights}
+    />
+  );
+
+  const RenderFooter = () => (
+    <Footer
+      openQuiz={openQuiz}
+      onHighlightsChange={handleHighlightsChange}
+      openHighlights={openHighlights}
+    />
+  );
 
   return (
     <ChakraProvider theme={theme}>
       <Nav />
       <Container my={8} mx="auto" maxW="70vw">
         {selectedBook ? (
-          showQuiz ? (
-            <>
-              <Menu
-                selectedBook={selectedBook}
-                onClose={handleMenuClose}
-                quizMode={quizMode}
-                goBackClick={goBackClick}
-              />
+          <>
+            <RenderMenu />
+            {showQuiz ? (
               <Quiz />
-            </>
-          ) : (
-            <>
-              <Menu selectedBook={selectedBook} onClose={handleMenuClose} />
-              <BookReader selectedBook={selectedBook} />
-              <Footer openQuiz={openQuiz} />
-            </>
-          )
+            ) : showHighlights ? (
+              <>
+                <Highlights
+                  sentences={bookHighlights}
+                  onHighlightsChange={handleHighlightsChange}
+                />
+                <RenderFooter />
+              </>
+            ) : (
+              <>
+                <BookReader
+                  selectedBook={selectedBook}
+                  onHighlightsChange={handleHighlightsChange}
+                />
+                <RenderFooter />
+              </>
+            )}
+          </>
         ) : (
           <>
             <FilterBooks />

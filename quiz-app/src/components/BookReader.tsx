@@ -1,33 +1,28 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Box } from '@chakra-ui/react';
 import { ReactReader } from 'react-reader';
 import { Rendition, Contents } from 'epubjs';
 
-export default function BookReader({ selectedBook }) {
+export default function BookReader({ selectedBook, onHighlightsChange }) {
   const [location, setLocation] = useState<string | number>(0);
+  const highlightKey = `highlightedText_${selectedBook.title}`;
   const [highlightedText, setHighlightedText] = useState<string | null>(
-    localStorage.getItem('highlightedText')
+    localStorage.getItem(highlightKey)
   );
   const [sentences, setSentences] = useState<string[]>([]);
   const [rendition, setRendition] = useState<Rendition | undefined>(undefined);
+  const highlightedTextRef = useRef<string | null>(null);
 
   const apiUrl = '/api/compareSentences';
 
-  //split highlighted text into sentences
   useEffect(() => {
-    if (highlightedText) {
+    if (highlightedText && highlightedText !== highlightedTextRef.current) {
       const splitSentences = highlightedText.split('. ');
       setSentences(splitSentences);
-      console.log('Split sentences:', splitSentences);
+      onHighlightsChange(splitSentences);
     }
-  }, [highlightedText]);
-
-  //clear highlighted text in localStorage when a new book is mounted
-  useEffect(() => {
-    setSentences([]);
-    localStorage.removeItem('highlightedText');
-    setHighlightedText(null);
-  }, [selectedBook]);
+    highlightedTextRef.current = highlightedText;
+  }, [highlightedText, onHighlightsChange]);
 
   //send sentences to backend
   useEffect(() => {
@@ -66,6 +61,7 @@ export default function BookReader({ selectedBook }) {
           setHighlightedText((prevText) => {
             const newTextValue = prevText ? `${prevText}. ${newText}` : newText;
             localStorage.setItem('highlightedText', newTextValue);
+            localStorage.setItem(highlightKey, newTextValue);
             return newTextValue;
           });
           rendition.annotations.add(
@@ -85,7 +81,7 @@ export default function BookReader({ selectedBook }) {
         rendition?.off('selected', setRenderSelection);
       };
     }
-  }, [sentences, rendition]);
+  }, [sentences, rendition, highlightKey]);
 
   const locationChanged = (epubcifi: string) => {
     setLocation(epubcifi);
