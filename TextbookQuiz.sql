@@ -28,6 +28,7 @@ create table quiz (
 create table quiz_question (
   id int not null auto_increment primary key,
   textbook_id int not null,
+  quiz_id int not null,
   highlighted_text long varchar,
   full_sentence long varchar,
   quiz_question varchar(280)
@@ -40,7 +41,7 @@ alter table quiz_question
 
 alter table quiz_question
   add foreign key (quiz_id)
-  reference quiz(id)
+  references quiz(id)
 ;
 
 create table student_quiz_answer (
@@ -59,3 +60,10 @@ alter table student_quiz_answer
   add foreign key (quiz_question_id)
   references quiz_question(id)
 ;
+
+create user 'textbookquiz'@'localhost' identified by 't3xtq61z';
+grant all privileges on *.* to 'textbookquiz'@'localhost';
+
+create user 'student'@'localhost' identified by '1m2St6d3nt';
+grant insert, update, select on textbookquizmaker.student_quiz_answer to 'student'@'localhost';
+ 
