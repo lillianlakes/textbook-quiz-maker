@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/textbook-quiz-maker/static/css/main.75f2cff3.css",
-    "main.js": "/textbook-quiz-maker/static/js/main.d467a0f2.js",
+    "main.js": "/textbook-quiz-maker/static/js/main.f46271e7.js",
     "index.html": "/textbook-quiz-maker/index.html",
     "main.75f2cff3.css.map": "/textbook-quiz-maker/static/css/main.75f2cff3.css.map",
-    "main.d467a0f2.js.map": "/textbook-quiz-maker/static/js/main.d467a0f2.js.map"
+    "main.f46271e7.js.map": "/textbook-quiz-maker/static/js/main.f46271e7.js.map"
   },
   "entrypoints": [
     "static/css/main.75f2cff3.css",
-    "static/js/main.d467a0f2.js"
+    "static/js/main.f46271e7.js"
   ]
 }
