@@ -1,82 +1,88 @@
 package com.wwwcode.textbookquizmaker.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "quiz_question")
 public class QuizQuestion {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int quiz_question_id;
 
     @ManyToOne
     @JoinColumn(name = "textbook_id")
-    private int textbook_id;
-    private String highlighted_text;
+    private TextBook textbook;
+
+    @ManyToOne
+    @JoinColumn(name = "quiz_id")
+    private Quiz quiz;
+
+    private String highlighted_ext;
+
     private String full_sentence;
+
     private String quiz_question;
 
-    // Constructors, getters, and setters
+	public int getQuiz_question_id() {
+		return quiz_question_id;
+	}
 
-    // Default constructor
-    public QuizQuestion() {
-    }
+	public void setQuiz_question_id(int quiz_question_id) {
+		this.quiz_question_id = quiz_question_id;
+	}
 
-    public QuizQuestion(int textbook_id, String highlighted_text, String full_sentence, String quiz_question) {
-        this.textbook_id = textbook_id;
-        this.highlighted_text = highlighted_text;
-        this.full_sentence = full_sentence;
-        this.quiz_question = quiz_question;
-    }
+	public TextBook getTextbook() {
+		return textbook;
+	}
 
-    // Getters and setters for fields
+	public void setTextbook(TextBook textbook) {
+		this.textbook = textbook;
+	}
 
-    public int getId() {
-        return quiz_question_id;
-    }
+	public Quiz getQuiz() {
+		return quiz;
+	}
 
-    public void setId(int quiz_question_id) {
-        this.quiz_question_id = quiz_question_id;
-    }
+	public void setQuiz(Quiz quiz) {
+		this.quiz = quiz;
+	}
 
-    public int getTextbookId() {
-        return textbook_id;
-    }
+	public String getHighlighted_ext() {
+		return highlighted_ext;
+	}
 
-    public void setTextbookId(int textbook_id) {
-        this.textbook_id = textbook_id;
-    }
+	public void setHighlighted_ext(String highlighted_ext) {
+		this.highlighted_ext = highlighted_ext;
+	}
 
-    public String getHighlightedText() {
-        return highlighted_text;
-    }
+	public String getFull_sentence() {
+		return full_sentence;
+	}
 
-    public void setHighlightedText(String highlighted_text) {
-        this.highlighted_text = highlighted_text;
-    }
+	public void setFull_sentence(String full_sentence) {
+		this.full_sentence = full_sentence;
+	}
 
-    public String getFullSentence() {
-        return full_sentence;
-    }
+	public String getQuiz_question() {
+		return quiz_question;
+	}
 
-    public void setFullSentence(String full_sentence) {
-        this.full_sentence = full_sentence;
-    }
+	public void setQuiz_question(String quiz_question) {
+		this.quiz_question = quiz_question;
+	}
 
-    public String getQuizQuestion() {
-        return quiz_question;
-    }
-
-    public void setQuizQuestion(String quiz_question) {
-        this.quiz_question = quiz_question;
-    }
+	public QuizQuestion(int quiz_question_id, TextBook textbook, Quiz quiz, String highlighted_ext,
+			String full_sentence, String quiz_question) {
+		super();
+		this.quiz_question_id = quiz_question_id;
+		this.textbook = textbook;
+		this.quiz = quiz;
+		this.highlighted_ext = highlighted_ext;
+		this.full_sentence = full_sentence;
+		this.quiz_question = quiz_question;
+	}
+    
+    
     
     
 }

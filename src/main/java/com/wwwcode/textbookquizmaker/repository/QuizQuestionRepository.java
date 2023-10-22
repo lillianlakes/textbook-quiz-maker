@@ -8,6 +8,6 @@ import com.wwwcode.textbookquizmaker.entity.QuizQuestion;
 public interface QuizQuestionRepository extends JpaRepository<QuizQuestion, Integer> {
     // You can define custom query methods here if needed.
 	
-	QuizQuestion findByFullSentence(String fullSentence);
+	QuizQuestion findByFullSentence(String full_sentence);
 
 }

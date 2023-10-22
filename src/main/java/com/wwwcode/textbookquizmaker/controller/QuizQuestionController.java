@@ -30,7 +30,7 @@ public class QuizQuestionController {
 
             if (question != null) {
                 // If a matching sentence is found, add the associated question to the list
-                associatedQuestions.add(question.getQuizQuestion());
+                associatedQuestions.add(question.getQuiz_question());
             }
         }
 
