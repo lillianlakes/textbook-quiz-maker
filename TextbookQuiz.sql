@@ -29,7 +29,7 @@ create table quiz_question (
   id int not null auto_increment primary key,
   textbook_id int not null,
   highlighted_text long varchar,
-  full_sentence long varchar,
+  passage_excerpt long varchar,
   quiz_question varchar(280)
 ) engine = InnoDB;
 
