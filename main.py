@@ -8,8 +8,6 @@ import pytorch_lightning as pl
 from scripts.preprocessing import TextPreprocessor 
 from logging_config import logging
 
-
-
 if __name__ == '__main':
     # Initialize the text preprocessor
     text_preprocessor = TextPreprocessor()
@@ -17,7 +15,7 @@ if __name__ == '__main':
     # Define the batch size and other hyperparameters
     batch_size = 4
     max_epochs = 100
-    accelerator = 'cuda' if torch.cuda.is_available() else 'cpu'
+    accelerator = 'cuda' if torch.cuda.is available() else 'cpu'
 
     # Initialize the model and trainer
     t5_tokenizer = AutoTokenizer.from_pretrained('t5-small')
@@ -25,12 +23,9 @@ if __name__ == '__main':
     train_data_frame = pd.read_csv('data/train.csv')
     validation_data_frame = pd.read_csv('data/valid.csv')
 
-    # Clean the text in your data frames
+    # Clean the text in your data frames by removing figure references
     train_data_frame['text_column'] = train_data_frame['text_column'].apply(text_preprocessor.remove_figure_references)
-    train_data_frame['text_column'] = train_data_frame['text_column'].apply(text_preprocessor.clean_text)
-
     validation_data_frame['text_column'] = validation_data_frame['text_column'].apply(text_preprocessor.remove_figure_references)
-    validation_data_frame['text_column'] = validation_data_frame['text_column'].apply(text_preprocessor.clean_text)
 
     custom_train_dataset = CustomQuestionGenerationDataset(t5_tokenizer, train_data_frame)
     custom_validation_dataset = CustomQuestionGenerationDataset(t5_tokenizer, validation_data_frame)
