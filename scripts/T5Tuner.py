@@ -2,6 +2,7 @@ import logging
 from logging_config import *  # Import logging settings from logging_config.py
 import torch
 from torch.utils.data import DataLoader
+import pytorch_lightning as pl
 from pytorch_lightning.callbacks import EarlyStopping
 from transformers import AutoTokenizer, T5ForConditionalGeneration
 import optim
