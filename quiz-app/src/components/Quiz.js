@@ -24,16 +24,16 @@ export default function Quiz() {
         alignItems="center"
         border="1px solid blue"
         borderRadius={12}
-        p={{ base: 4, md: 20 }}
+        p={{ base: 4, md: 10 }}
         w={{ base: '90%', md: 'auto' }}
         bg="#D2B6FF"
       >
         <Box w="450px">
           <Stack gap={8}>
             <Text fontSize={{ base: 'sm', md: 'md' }} as="b">
-              Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
-              commodo ligula eget dolor. Aenean massa. Cum sociis natoque
-              penatibus et magnis?
+              Why was William Henry Channing invited to prepare the call and
+              resolutions for the Woman's Rights Convention in Rochester in
+              1853, and what was the purpose of the call and resolutions?
             </Text>
             <Textarea
               size="md"

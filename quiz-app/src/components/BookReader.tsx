@@ -29,6 +29,7 @@ export default function BookReader({
   const highlightedTextRef = useRef<string | null>(null);
 
   const apiUrl = '/api/compareSentences';
+
   useEffect(() => {
     if (bionicMode && rendition) {
       rendition.hooks.content.register(applyBionicMode);
@@ -36,11 +37,6 @@ export default function BookReader({
       rendition.display().then(() => {
         rendition.display(currentLocation);
       });
-    } else if (rendition) {
-      console.log(rendition);
-      console.log(rendition.hooks.content);
-      console.log(rendition.location.start.cfi);
-      rendition.hooks.content.deregister(applyBionicMode);
     }
   }, [bionicMode, rendition]);
 
@@ -49,7 +45,7 @@ export default function BookReader({
       if (comicNeueActive) {
         rendition.themes.default({
           body: {
-            'font-family': 'Comic Neue, sans-serif',
+            'font-family': 'Comic Neue',
           },
         });
       } else {
