@@ -15,6 +15,8 @@ function App() {
   const [showQuiz, setShowQuiz] = useState(false);
   const [showHighlights, setShowHighlights] = useState(false);
   const [bookHighlights, setBookHighlights] = useState([]);
+  const [bionicMode, setBionicMode] = useState(false);
+  const [comicNeueActive, setComicNeueActive] = useState(false);
 
   const handleBookSelect = (book) => {
     setSelectedBook(book);
@@ -56,6 +58,7 @@ function App() {
       );
     }
   };
+
   const RenderMenu = () => (
     <Menu
       selectedBook={selectedBook}
@@ -71,6 +74,8 @@ function App() {
       openQuiz={openQuiz}
       onHighlightsChange={handleHighlightsChange}
       openHighlights={openHighlights}
+      setBionicMode={setBionicMode}
+      setComicNeueActive={setComicNeueActive}
     />
   );
 
@@ -96,6 +101,8 @@ function App() {
                 <BookReader
                   selectedBook={selectedBook}
                   onHighlightsChange={handleHighlightsChange}
+                  bionicMode={bionicMode}
+                  comicNeueActive={comicNeueActive}
                 />
                 <RenderFooter />
               </>
