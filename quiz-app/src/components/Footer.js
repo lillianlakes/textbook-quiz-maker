@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   Menu,
   MenuList,
@@ -9,12 +9,25 @@ import {
   ButtonGroup,
 } from '@chakra-ui/react';
 
-export default function Footer({ openQuiz, openHighlights }) {
+export default function Footer({
+  openQuiz,
+  openHighlights,
+  setBionicMode,
+  setComicNeueActive,
+}) {
   const handleQuizClick = () => {
     openQuiz();
   };
   const handleHighlightsClick = () => {
     openHighlights();
+  };
+
+  const handleBionicToggle = () => {
+    setBionicMode((prevMode) => !prevMode);
+  };
+
+  const handleFontToggle = () => {
+    setComicNeueActive((prevMode) => !prevMode);
   };
 
   return (
@@ -32,10 +45,14 @@ export default function Footer({ openQuiz, openHighlights }) {
           Aa
         </MenuButton>
         <MenuList minW="none" bg="#FFD465">
-          <MenuItem fontFamily="sans-serif" bg="#FFD465">
-            Sans Serif
+          <MenuItem fontFamily="cosmic" bg="#FFD465" onClick={handleFontToggle}>
+            Comic Neue
           </MenuItem>
-          <MenuItem fontFamily="revert" bg="#FFD465">
+          <MenuItem
+            fontFamily="revert"
+            bg="#FFD465"
+            onClick={handleBionicToggle}
+          >
             Bionic Read
           </MenuItem>
         </MenuList>

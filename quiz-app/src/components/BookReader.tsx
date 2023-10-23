@@ -2,8 +2,23 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Box } from '@chakra-ui/react';
 import { ReactReader } from 'react-reader';
 import { Rendition, Contents } from 'epubjs';
+import { textVide } from 'text-vide';
 
-export default function BookReader({ selectedBook, onHighlightsChange }) {
+function applyBionicMode(contents: Contents) {
+  const document = contents.document;
+  const body = document.querySelector('body');
+  if (body) {
+    const modifiedText = textVide(body.innerHTML);
+    body.innerHTML = modifiedText;
+  }
+}
+
+export default function BookReader({
+  selectedBook,
+  onHighlightsChange,
+  bionicMode,
+  comicNeueActive,
+}) {
   const [location, setLocation] = useState<string | number>(0);
   const highlightKey = `highlightedText_${selectedBook.title}`;
   const [highlightedText, setHighlightedText] = useState<string | null>(
@@ -14,6 +29,38 @@ export default function BookReader({ selectedBook, onHighlightsChange }) {
   const highlightedTextRef = useRef<string | null>(null);
 
   const apiUrl = '/api/compareSentences';
+  useEffect(() => {
+    if (bionicMode && rendition) {
+      rendition.hooks.content.register(applyBionicMode);
+      const currentLocation = rendition.location.start.cfi;
+      rendition.display().then(() => {
+        rendition.display(currentLocation);
+      });
+    } else if (rendition) {
+      console.log(rendition);
+      console.log(rendition.hooks.content);
+      console.log(rendition.location.start.cfi);
+      rendition.hooks.content.deregister(applyBionicMode);
+    }
+  }, [bionicMode, rendition]);
+
+  useEffect(() => {
+    if (rendition) {
+      if (comicNeueActive) {
+        rendition.themes.default({
+          body: {
+            'font-family': 'Comic Neue, sans-serif',
+          },
+        });
+      } else {
+        rendition.themes.default({
+          body: {
+            'font-family': 'Inter, sans-serif',
+          },
+        });
+      }
+    }
+  }, [comicNeueActive, rendition]);
 
   useEffect(() => {
     if (highlightedText && highlightedText !== highlightedTextRef.current) {
@@ -86,7 +133,6 @@ export default function BookReader({ selectedBook, onHighlightsChange }) {
   const locationChanged = (epubcifi: string) => {
     setLocation(epubcifi);
   };
-
   return (
     <Box style={{ height: '75vh' }}>
       <ReactReader
