@@ -14,9 +14,9 @@
 | │   ├── train.csv                     |
 | │   ├── valid.csv                     |
 | │                                    |
-| ├── models/                           |
-| │   ├── t5_trained_model/              |
-| │   ├── t5_tokenizer/                 |
+| |                                    |
+| ├── t5_trained_model/                |
+| ├── t5_tokenizer/                    |
 | │                                    |
 | ├── logs/                             |
 | │   ├── your_project.log               |
