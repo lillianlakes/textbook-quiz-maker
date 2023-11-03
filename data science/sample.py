@@ -29,5 +29,5 @@ while True:
         break
 
     generated_question = generate_question(sample_sentence)
-    print(f"Generated Question: {generated_question}")
+    print(f"Generated {generated_question}")
     
