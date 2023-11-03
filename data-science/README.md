@@ -32,10 +32,10 @@ Provide instructions on how to use your model in a clear and concise manner.
 from transformers import AutoTokenizer, AutoModelForSeq2SeqLM
 
 # Load the tokenizer
-tokenizer = AutoTokenizer.from_pretrained("t5_tokenizer")
+tokenizer = AutoTokenizer.from_pretrained("t5_tokenizer", auth_token = ENTER_HUGGINGFACE_AUTH_TOKEN)
 
 # Load the model
-model = AutoModelForSeq2SeqLM.from_pretrained("t5_trained_model")
+model = AutoModelForSeq2SeqLM.from_pretrained("t5_trained_model", auth_token = ENTER_HUGGINGFACE_AUTH_TOKEN)
 
 # Generate a question
 input_text = "Provide a sample input text."

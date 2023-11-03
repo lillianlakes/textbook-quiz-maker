@@ -3,13 +3,13 @@ import logging
 from transformers import AutoTokenizer, T5ForConditionalGeneration
 from scripts.preprocessing import TextPreprocessor
 from assets.style import set_custom_css
-from huggingface_hub import login
+# from huggingface_hub import login
 from dotenv import load_dotenv
 import os
 
 load_dotenv()
 huggingface_token = os.getenv("HUGGINGFACE_TOKEN")
-login(huggingface_token)
+# login(huggingface_token)
 
 class BookBuddyApp:
     def __init__(self):
@@ -31,8 +31,8 @@ class BookBuddyApp:
     def load_models(self):
         self.trained_model_path = 't5_trained_model'
         self.trained_tokenizer_path = 't5_tokenizer'
-        self.model = T5ForConditionalGeneration.from_pretrained(self.trained_model_path)
-        self.tokenizer = AutoTokenizer.from_pretrained(self.trained_tokenizer_path)
+        self.model = T5ForConditionalGeneration.from_pretrained(self.trained_model_path, auth_token = huggingface_token)
+        self.tokenizer = AutoTokenizer.from_pretrained(self.trained_tokenizer_path, auth_token = huggingface_token)
         self.text_preprocessor = TextPreprocessor()
 
     def generate_question(self, sentence):

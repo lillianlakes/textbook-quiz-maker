@@ -7,7 +7,11 @@ from scripts.T5Tuner import T5Tuner
 import pytorch_lightning as pl
 from scripts.preprocessing import TextPreprocessor 
 from logging_config import logging
+# from huggingface_hub import login
+from dotenv import load_dotenv
 
+load_dotenv()
+huggingface_token = os.getenv("HUGGINGFACE_TOKEN")
 
 
 if __name__ == '__main':
@@ -20,8 +24,8 @@ if __name__ == '__main':
     accelerator = 'cuda' if torch.cuda.is_available() else 'cpu'
 
     # Initialize the model and trainer
-    t5_tokenizer = AutoTokenizer.from_pretrained('t5-small')
-    t5_model = T5ForConditionalGeneration.from_pretrained('t5-small')
+    t5_tokenizer = AutoTokenizer.from_pretrained('t5-small', auth_token = huggingface_token)
+    t5_model = T5ForConditionalGeneration.from_pretrained('t5-small', auth_token = huggingface_token)
     train_data_frame = pd.read_csv('data/train.csv')
     validation_data_frame = pd.read_csv('data/valid.csv')
 
