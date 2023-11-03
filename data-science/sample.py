@@ -1,18 +1,14 @@
 import torch
 from transformers import AutoTokenizer, T5ForConditionalGeneration
 from scripts.preprocessing import TextPreprocessor  # Import the TextPreprocessor class from your preprocessing script
-from dotenv import load_dotenv
-import os
-
-load_dotenv()
-huggingface_token = os.getenv("HUGGINGFACE_TOKEN")
+import streamlit as st
 
 # Load the previously fine-tuned models
 trained_model_path = 't5_trained_model'  
 trained_tokenizer_path = 't5_tokenizer' 
 
-model = T5ForConditionalGeneration.from_pretrained(trained_model_path, token = huggingface_token)
-tokenizer = AutoTokenizer.from_pretrained(trained_tokenizer_path, token = huggingface_token)
+model = T5ForConditionalGeneration.from_pretrained(trained_model_path, token = st.secrets["huggingface_token"])
+tokenizer = AutoTokenizer.from_pretrained(trained_tokenizer_path, token = st.secrets["huggingface_token"])
 
 text_preprocessor = TextPreprocessor()  # Initialize the TextPreprocessor
 
