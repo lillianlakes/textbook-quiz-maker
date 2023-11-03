@@ -3,6 +3,13 @@ import logging
 from transformers import AutoTokenizer, T5ForConditionalGeneration
 from scripts.preprocessing import TextPreprocessor
 from assets.style import set_custom_css
+from huggingface_hub import login
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
+huggingface_token = os.getenv("HUGGINGFACE_TOKEN")
+login(huggingface_token)
 
 class BookBuddyApp:
     def __init__(self):
