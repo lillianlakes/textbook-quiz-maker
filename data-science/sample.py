@@ -11,8 +11,8 @@ huggingface_token = os.getenv("HUGGINGFACE_TOKEN")
 trained_model_path = 't5_trained_model'  
 trained_tokenizer_path = 't5_tokenizer' 
 
-model = T5ForConditionalGeneration.from_pretrained(trained_model_path, auth_token = huggingface_token)
-tokenizer = AutoTokenizer.from_pretrained(trained_tokenizer_path, auth_token = huggingface_token)
+model = T5ForConditionalGeneration.from_pretrained(trained_model_path, token = huggingface_token)
+tokenizer = AutoTokenizer.from_pretrained(trained_tokenizer_path, token = huggingface_token)
 
 text_preprocessor = TextPreprocessor()  # Initialize the TextPreprocessor
 
