@@ -49,6 +49,11 @@ generated_question = tokenizer.decode(question_ids[0], skip_special_tokens=True)
 print(f"Generated {generated_question}")
 ```
 
+## Model Usage
+
+Check out the deployed model [here](https://huggingface.co/spaces/lillianlakes/book-buddy-question-generator).
+![Web Application for Book Buddy - ADHD Friendly E-Textbook Quiz Maker](/data-science/assets/web_application.png)
+
 ## Directory Structure
 
 | Directory Structure                     |
