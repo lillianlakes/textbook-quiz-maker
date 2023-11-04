@@ -5,8 +5,7 @@ from transformers import AutoTokenizer, T5ForConditionalGeneration
 from scripts.CustomQuestionGenerationDataset import CustomQuestionGenerationDataset
 from scripts.T5Tuner import T5Tuner
 import pytorch_lightning as pl
-from scripts.preprocessing import TextPreprocessor 
-from logging_config import logging
+from scripts.preprocessing import TextPreprocessor
 import streamlit as st
 from huggingface_hub import login
 

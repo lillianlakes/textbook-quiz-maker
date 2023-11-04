@@ -1,4 +1,3 @@
-import torch
 from transformers import AutoTokenizer, T5ForConditionalGeneration
 from scripts.preprocessing import TextPreprocessor  # Import the TextPreprocessor class from your preprocessing script
 import streamlit as st
@@ -34,5 +33,4 @@ while True:
         break
 
     generated_question = generate_question(sample_sentence)
-    print(f"Generated {generated_question}")
-    
+    print(f"Generated {generated_question}")  
