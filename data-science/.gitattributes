@@ -1,3 +1,1 @@
 t5_trained_model/pytorch_model.bin filter=lfs diff=lfs merge=lfs -text
-t5_trained_model/pytorch_model/ filter=lfs diff=lfs merge=lfs -text
-t5_trained_model/pytorch_model/data/0 filter=lfs diff=lfs merge=lfs -text
