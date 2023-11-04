@@ -51,6 +51,7 @@ print(f"Generated {generated_question}")
 
 ## Directory Structure
 
+| Directory Structure                     |
 |----------------------------------------|
 | textbook-quiz-maker/                   |
 | ├── data science/                     |
@@ -75,3 +76,4 @@ print(f"Generated {generated_question}")
 |     ├── custom_dataset.py             |
 |     ├── t5_tuner.py                   |
 |     ├── preprocessing.py              |
+
