@@ -56,29 +56,43 @@ Check out the deployed model [here](https://huggingface.co/spaces/lillianlakes/b
 
 ## Directory Structure
 
-| Directory Structure                     |
+| Directory Structure                    |
 |----------------------------------------|
 | textbook-quiz-maker/                   |
-| ├── data science/                     |
-| │   ├── main.py                       |
-| │   ├── sample.py                     |
-| │   ├── README.md                     |
-| │   ├── requirements.txt              |
-| │   ├── logging_config.py              |
-| │                                    |
-| ├── data/                             |
-| │   ├── train.csv                     |
-| │   ├── valid.csv                     |
-| │                                    |
-| |                                    |
-| ├── t5_trained_model/                |
-| ├── t5_tokenizer/                    |
-| │                                    |
-| ├── logs/                             |
-| │   ├── your_project.log               |
-| │                                    |
-| ├── scripts/                          |
-|     ├── custom_dataset.py             |
-|     ├── t5_tuner.py                   |
-|     ├── preprocessing.py              |
-
+| ├── .streamlit/                        |
+| │   └── secrets.toml                   |
+| │                                      |
+| ├── assets/                            |
+| │   ├── logo.png                       |
+| │   ├── style.py                       |
+| │   └── web_application.png            |
+| │                                      |
+| ├── data/                              |
+| │   ├── train.csv                      |
+| │   └── valid.csv                      |
+| │                                      |
+| ├── logs/                              |
+| │   └── your_project.log               |
+| │                                      |
+| ├── scripts/                           |
+| │   ├── custom_dataset.py              |
+| │   ├── t5_tuner.py                    |
+| │   └── preprocessing.py               |
+| |                                      |
+| ├── t5_tokenizer/                      |
+| │   ├── special_tokens_map.json        |
+| │   ├── tokenizer.json                 |
+| │   └── tokenizer_config.json          |
+| |                                      |
+| ├── t5_trained_model/                  |
+| │   ├── config.json                    |
+| │   ├── generation_config.json         |
+| │   └── pytorch_model.bin              |
+| │                                      |
+| ├── .gitattributes                     |
+| ├── BookBuddyApp.py                    |
+| ├── README.md                          |
+| ├── logging_config.py                  |
+| ├── main.py                            |
+| ├── requirements.txt                   |
+| └── sample.py                          |
