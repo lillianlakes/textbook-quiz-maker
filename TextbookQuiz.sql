@@ -13,7 +13,7 @@ create table textbook (
 create table student (
   id int not null auto_increment primary key,
   username varchar(20),
-  password varchar(20),
+  password varchar(20) encrypted,
   first_name varchar(20),
   last_name varchar(20),
   school_name varchar(50),
@@ -66,4 +66,3 @@ grant all privileges on *.* to 'textbookquiz'@'localhost';
 
 create user 'student'@'localhost' identified by '1m2St6d3nt';
 grant insert, update, select on textbookquizmaker.student_quiz_answer to 'student'@'localhost';
- 
